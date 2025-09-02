@@ -1,0 +1,31 @@
+trigger: none
+
+schedules:
+  - cron: "0 8,10,12,14,16 * * Mon-Fri"
+    displayName: Every Second Hour Office Hours
+    branches:
+      include:
+        - main
+    always: true
+
+pool:
+  vmImage: "ubuntu-22.04"
+
+steps:
+  - checkout: self
+    fetchDepth: 0
+    persistCredentials: true
+  - script: |
+      set -e
+      git checkout main
+      git pull
+      git fetch -p
+      git reset --hard origin/main
+      git config --global pull.rebase true
+      git config --global user.email "azure-pipelines@$(System.TeamProject).$(Build.Repository.Name)"
+      git config --global user.name "Azure Pipelines ($(System.TeamProject) $(Build.Repository.Name))"
+      git remote add upstream https://github.com/XenitAB/azure-devops-templates
+      git pull upstream main
+      git push origin main
+      git fetch upstream --tags --prune
+      git push origin --tags refs/remotes/upstream/*:refs/heads/* --prune
