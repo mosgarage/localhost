@@ -1,0 +1,199 @@
+{
+	"name": "code-sync",
+	"displayName": "CodeSync",
+	"description": "Sync VSCode extensions using your favorite file synchronization service (OneDrive, Dropbox, Google Drive, etc.)",
+	"version": "2.7.3",
+	"publisher": "golf1052",
+	"keywords": [
+		"sync",
+		"extension",
+		"extensions",
+		"codesync"
+	],
+	"icon": "images/logo.png",
+	"license": "See licence in LICENSE",
+	"licenseUrl": "http://opensource.org/licenses/MIT",
+	"homepage": "https://github.com/golf1052/code-sync",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/golf1052/code-sync.git"
+	},
+	"bugs": {
+		"url": "https://github.com/golf1052/code-sync/issues",
+		"email": "golf1052@msn.com"
+	},
+	"galleryBanner": {
+		"color": "#6495ed",
+		"theme": "light"
+	},
+	"engines": {
+		"vscode": "^1.14.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"category": "CodeSync",
+				"command": "codeSync.importAll",
+				"title": "Import all"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.exportAll",
+				"title": "Export all"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.importSettings",
+				"title": "Import settings"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.exportSettings",
+				"title": "Export settings"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.importKeybindings",
+				"title": "Import keybindings"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.exportKeybindings",
+				"title": "Export keybindings"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.importSnippets",
+				"title": "Import snippets"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.exportSnippets",
+				"title": "Export snippets"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.importExtensions",
+				"title": "Import extensions"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.exportExtensions",
+				"title": "Export extensions"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.listExcludedInstalled",
+				"title": "List excluded installed extensions"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.listExcludedExternal",
+				"title": "List excluded external extensions"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.addExcludedInstalled",
+				"title": "Exclude an installed extension"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.addExcludedExternal",
+				"title": "Exclude an external extension"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.removeExcludedInstalled",
+				"title": "Remove an exclusion - Installed"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.removeExcludedExternal",
+				"title": "Remove an exclusion - External"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.toggleAutoImport",
+				"title": "Toggle auto import"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.toggleAutoExport",
+				"title": "Toggle auto export"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.toggleImportSettings",
+				"title": "Toggle import/export settings"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.toggleImportKeybindings",
+				"title": "Toggle import/export keybindings"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.toggleImportSnippets",
+				"title": "Toggle import/export snippets"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.toggleImportExtensions",
+				"title": "Toggle import/export extensions"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.setSyncPath",
+				"title": "Set external sync path"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.toggleStatusBar",
+				"title": "Toggle status bar icon"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.setCodeExecutableName",
+				"title": "Set VSCode executable name"
+			},
+			{
+				"category": "CodeSync",
+				"command": "codeSync.setCodeSettingsPath",
+				"title": "Set VSCode settings path"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/mkdirp": "^1.0.1",
+		"@types/mocha": "^8.0.3",
+		"@types/node": "^12.12.6",
+		"@types/rimraf": "^3.0.0",
+		"@types/vscode": "^1.14.0",
+		"mocha": "^8.1.3",
+		"typescript": "^3.9.7",
+		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"chokidar": "^3.4.2",
+		"comment-json": "^4.1.0",
+		"mkdirp": "^1.0.4",
+		"recursive-copy": "^2.0.11",
+		"rimraf": "^3.0.2"
+	},
+	"__metadata": {
+		"installedTimestamp": 1744977292100,
+		"size": 1745467
+	}
+}

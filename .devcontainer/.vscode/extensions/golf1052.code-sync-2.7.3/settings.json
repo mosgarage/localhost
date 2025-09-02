@@ -1,0 +1,17 @@
+{
+    "$schema": "./schema/settings.schema.json",
+    "externalPath": "/home/ubuntu/OneDrive/Apps/code-sync",
+    "autoImport": true,
+    "autoExport": true,
+    "importSettings": true,
+    "importKeybindings": true,
+    "importSnippets": true,
+    "importExtensions": true,
+    "showStatusBarIcon": true,
+    "excluded": {
+        "installed": [],
+        "external": []
+    },
+    "executableName": "",
+    "settingsPath": ""
+}

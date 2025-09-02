@@ -1,0 +1,549 @@
+{
+	"name": "gitpod-flex",
+	"displayName": "Gitpod Flex",
+	"description": "Required to connect to Flex environments",
+	"publisher": "gitpod",
+	"version": "0.1.2025041703",
+	"icon": "resources/gitpod.png",
+	"engines": {
+		"vscode": "^1.89.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"remote development",
+		"remote"
+	],
+	"extensionKind": [
+		"ui"
+	],
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
+	"activationEvents": [
+		"onUri",
+		"onStartupFinished",
+		"onResolveRemoteAuthority:ssh-remote",
+		"onResolveRemoteAuthority:dev-container",
+		"onResolveRemoteAuthority:environment"
+	],
+	"contributes": {
+		"authentication": [
+			{
+				"label": "Gitpod Flex",
+				"id": "gitpod-flex"
+			}
+		],
+		"commands": [
+			{
+				"command": "gitpod-flex.exportLogs",
+				"category": "Gitpod Flex",
+				"title": "Export all logs"
+			},
+			{
+				"command": "gitpod-flex.showExtensionLogs",
+				"category": "Gitpod Flex",
+				"title": "Show extension logs"
+			},
+			{
+				"command": "gitpod-flex.signIn",
+				"category": "Gitpod Flex",
+				"title": "Sign In"
+			},
+			{
+				"command": "gitpod-flex.showEnvironmentDetails",
+				"category": "Gitpod Flex",
+				"title": "Show Environment Details"
+			},
+			{
+				"command": "gitpod-flex.rebuildContainer",
+				"category": "Gitpod Flex",
+				"title": "Rebuild Container",
+				"icon": "$(refresh)"
+			},
+			{
+				"command": "gitpod-flex.uninstall",
+				"category": "Gitpod Flex",
+				"title": "Uninstall Extension"
+			},
+			{
+				"command": "gitpod-flex.environments.stopCurrentEnvironment",
+				"category": "Gitpod Flex",
+				"title": "Stop Current Environment"
+			},
+			{
+				"command": "gitpod-flex.environments.deleteCurrentEnvironment",
+				"category": "Gitpod Flex",
+				"title": "Delete Current Environment"
+			},
+			{
+				"command": "gitpod-flex.reopenInContainer",
+				"category": "Gitpod Flex",
+				"title": "Reopen In Container"
+			},
+			{
+				"command": "gitpod-flex.services.startService",
+				"category": "Gitpod Flex",
+				"title": "Start",
+				"icon": "$(play)"
+			},
+			{
+				"command": "gitpod-flex.services.stopService",
+				"category": "Gitpod Flex",
+				"title": "Stop",
+				"icon": "$(primitive-square)"
+			},
+			{
+				"command": "gitpod-flex.services.showLogs",
+				"category": "Gitpod Flex",
+				"title": "Show logs",
+				"icon": "$(output)"
+			},
+			{
+				"command": "gitpod-flex.tasks.startTask",
+				"category": "Gitpod Flex",
+				"title": "Start",
+				"icon": "$(play)"
+			},
+			{
+				"command": "gitpod-flex.tasks.stopTask",
+				"category": "Gitpod Flex",
+				"title": "Stop",
+				"icon": "$(primitive-square)"
+			},
+			{
+				"command": "gitpod-flex.tasks.showLogs",
+				"category": "Gitpod Flex",
+				"title": "Show logs",
+				"icon": "$(output)"
+			},
+			{
+				"command": "gitpod-flex.applyAutomationsFileChanges",
+				"category": "Gitpod Flex",
+				"title": "Apply Automations Configuration changes",
+				"icon": "$(refresh)"
+			},
+			{
+				"command": "gitpod-flex.openDevcontainerConfiguration",
+				"category": "Gitpod Flex",
+				"title": "Open Dev Container Configuration",
+				"icon": "$(gear)"
+			},
+			{
+				"command": "gitpod-flex.openAutomationsFile",
+				"category": "Gitpod Flex",
+				"title": "Open Automations Configuration",
+				"icon": "$(gear)"
+			},
+			{
+				"command": "gitpod-flex.addTaskAutomation",
+				"category": "Gitpod Flex",
+				"title": "New Task",
+				"icon": "$(add)"
+			},
+			{
+				"command": "gitpod-flex.addServiceAutomation",
+				"category": "Gitpod Flex",
+				"title": "New Service",
+				"icon": "$(add)"
+			},
+			{
+				"command": "gitpod-flex.focusEnvironmentView",
+				"category": "Gitpod Flex",
+				"title": "Focus Environment View"
+			},
+			{
+				"command": "gitpod-flex.ports.openInBrowser",
+				"category": "Gitpod Flex",
+				"title": "Open in Browser",
+				"icon": "$(globe)"
+			},
+			{
+				"command": "gitpod-flex.ports.copyUrl",
+				"category": "Gitpod Flex",
+				"title": "Copy Url",
+				"icon": "$(clippy)"
+			},
+			{
+				"command": "gitpod-flex.ports.openNew",
+				"category": "Gitpod Flex",
+				"title": "Open New Public Port",
+				"icon": "$(add)"
+			},
+			{
+				"command": "gitpod-flex.ports.close",
+				"category": "Gitpod Flex",
+				"title": "Close",
+				"icon": "$(close)"
+			}
+		],
+		"menus": {
+			"statusBar/remoteIndicator": [
+				{
+					"command": "gitpod-flex.showEnvironmentDetails",
+					"group": "remote_00_gitpod_navigation@01",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.rebuildContainer",
+					"group": "remote_00_gitpod_navigation@02",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.focusEnvironmentView",
+					"group": "remote_00_gitpod_navigation@03",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.openDevcontainerConfiguration",
+					"group": "remote_00_gitpod_navigation@04",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.openAutomationsFile",
+					"group": "remote_00_gitpod_navigation@05",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.applyAutomationsFileChanges",
+					"group": "remote_00_gitpod_navigation@06",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.reopenInContainer",
+					"group": "remote_00_gitpod_navigation@9",
+					"when": "gitpod-flex.authenticated == true && gitpod-flex.inRecovery == true"
+				},
+				{
+					"command": "gitpod-flex.environments.stopCurrentEnvironment",
+					"group": "remote_00_gitpod_navigation@10",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.environments.deleteCurrentEnvironment",
+					"group": "remote_00_gitpod_navigation@11",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				}
+			],
+			"view/title": [
+				{
+					"command": "gitpod-flex.showEnvironmentDetails",
+					"when": "view == gitpod-flex-env",
+					"group": "z_commands@1"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "gitpod-flex.services.startService",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.service.+(failed|stopped)/",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitpod-flex.services.stopService",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.service.+running/",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitpod-flex.services.showLogs",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.service(\\.|$)/",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitpod-flex.tasks.startTask",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.task.manualTrigger.+(failed|stopped)/",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitpod-flex.tasks.stopTask",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.task\\.manualTrigger.+running/",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitpod-flex.tasks.showLogs",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.task(\\.|$)/",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitpod-flex.openDevcontainerConfiguration",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.devcontainer/",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitpod-flex.rebuildContainer",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.devcontainer/",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitpod-flex.openAutomationsFile",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.automations/",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitpod-flex.applyAutomationsFileChanges",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.automations/",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitpod-flex.addTaskAutomation",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.tasks/",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitpod-flex.addServiceAutomation",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.services/",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitpod-flex.ports.copyUrl",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.port$/",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitpod-flex.ports.openInBrowser",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.port$/",
+					"group": "inline@2"
+				},
+				{
+					"command": "gitpod-flex.ports.openNew",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.ports$/",
+					"group": "inline@1"
+				},
+				{
+					"command": "gitpod-flex.ports.close",
+					"when": "viewItem =~ /^gitpod-flex-environment\\.port$/",
+					"group": "destruction@1"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "gitpod-flex.showEnvironmentDetails",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.rebuildContainer",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.environments.stopCurrentEnvironment",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.environments.deleteCurrentEnvironment",
+					"when": "gitpod-flex.authenticated == true && (gitpod-flex.inEnvironment == true || gitpod-flex.inRecovery == true)"
+				},
+				{
+					"command": "gitpod-flex.reopenInContainer",
+					"when": "gitpod-flex.authenticated == true && gitpod-flex.inRecovery == true"
+				},
+				{
+					"command": "gitpod-flex.services.startService",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.services.stopService",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.services.showLogs",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.tasks.startTask",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.tasks.stopTask",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.tasks.showLogs",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.applyAutomationsFileChanges",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.openDevcontainerConfiguration",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.openAutomationsFile",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.addTaskAutomation",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.addServiceAutomation",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.focusEnvironmentView",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.ports.openInBrowser",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.ports.copyUrl",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.ports.openNew",
+					"when": "false"
+				},
+				{
+					"command": "gitpod-flex.ports.close",
+					"when": "false"
+				}
+			]
+		},
+		"configuration": [
+			{
+				"title": "Gitpod Flex",
+				"properties": {
+					"gitpod-flex.host": {
+						"type": [
+							"string",
+							"null"
+						],
+						"description": "Gitpod Service URL.",
+						"default": null,
+						"scope": "application"
+					},
+					"gitpod-flex.showEnvironmentDetails": {
+						"type": "string",
+						"enum": [
+							"always",
+							"once",
+							"never"
+						],
+						"enumDescriptions": [
+							"Show the environment details view on each window load",
+							"Show the environment details view once for a new environment",
+							"Never show the environment details view"
+						],
+						"description": "Controls when to show the environment details view.",
+						"default": "always",
+						"scope": "application"
+					}
+				}
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "gitpod-flex-view",
+					"title": "Gitpod Flex",
+					"icon": "resources/explorer.svg"
+				}
+			]
+		},
+		"views": {
+			"gitpod-flex-view": [
+				{
+					"id": "gitpod-flex-env",
+					"name": "Environment",
+					"icon": "$(squirrel)",
+					"when": "gitpod-flex.authenticated == true && gitpod-flex.remoteResolved"
+				}
+			]
+		},
+		"viewsWelcome": [
+			{
+				"view": "explorer",
+				"contents": "To connect to a Gitpod environment, click here:\n[Connect to Environment ...](command:gitpod-flex.connectCurrentWindowToEnvironment)",
+				"when": "isWeb && !remoteName",
+				"group": "2_open@2"
+			}
+		]
+	},
+	"scripts": {
+		"bundle:node": "webpack --mode production",
+		"bundle:web": "webpack --config webpack.web.config.js --mode production",
+		"bundle": "yarn bundle:node && yarn bundle:web",
+		"package": "yarn bundle && vsce package --yarn",
+		"packageOnly": "vsce package --yarn",
+		"compile": "tsc -b tsconfig.compile.json",
+		"watch": "tsc -b -w tsconfig.compile.json",
+		"compile-web": "webpack --config webpack.web.config.js",
+		"watch-web": "webpack --config webpack.web.config.js --watch",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"test": "vscode-test",
+		"leeway:test": "yarn lint && yarn compile && yarn test",
+		"compile-proxy": "webpack --mode development",
+		"watch-proxy": "webpack watch --mode development",
+		"proto-gen": "cd ./src/proto && buf lint && buf generate && ./patchProtoDef.sh",
+		"serve": "serve --cors -l 5000",
+		"tunnel": "lt -p 5000",
+		"update-dts": "npx vscode-dts dev"
+	},
+	"devDependencies": {
+		"@bufbuild/buf": "1.50.1",
+		"@babel/parser": "^7.24.7",
+		"@bufbuild/protoc-gen-es": "^1.8.0",
+		"@connectrpc/protoc-gen-connect-es": "^1.6.1",
+		"@stylistic/eslint-plugin-js": "^2.9.0",
+		"@stylistic/eslint-plugin-ts": "^2.9.0",
+		"@stylistic/eslint-plugin": "^2.9.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "18.x",
+		"@types/proper-lockfile": "^4.1.4",
+		"@types/set-cookie-parser": "^2.4.7",
+		"@types/semver": "^7.5.8",
+		"@types/vscode": "1.89.0",
+		"@types/webpack": "^5.28.5",
+		"typescript-eslint": "^8.11.0",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.4.1",
+		"@vscode/vsce": "^2.18.0",
+		"copy-webpack-plugin": "^11.0.0",
+		"eslint": "^9.13.0",
+		"eslint-plugin-header": "^3.1.1",
+		"eslint-plugin-jsdoc": "^50.4.3",
+		"minimist": "^1.2.8",
+		"mocha": "^10.0.0",
+		"ts-loader": "^9.5.2",
+		"typescript": "^5.7.3",
+		"umd-compat-loader": "git+https://github.com/jeanp413/umd-compat-loader#master",
+		"webpack": "^5.98.0",
+		"webpack-cli": "^6.0.1",
+		"process": "^0.11.10",
+		"localtunnel": "^2.0.2",
+		"serve": "14.2.4"
+	},
+	"dependencies": {
+		"@bufbuild/protobuf": "1.8.0",
+		"@connectrpc/connect": "1.4.0",
+		"@connectrpc/connect-node": "1.4.0",
+		"@connectrpc/connect-web": "1.4.0",
+		"@segment/analytics-node": "^2.2.0",
+		"braces": "^3.0.3",
+		"configcat-node": "11.3.1",
+		"configcat-js": "9.5.1",
+		"gitpod-shared": "link:././frontend-vscode-shared--lib/node_modules/gitpod-shared",
+		"gitpod-next-api": "link:./api-typescript--build/node_modules/gitpod-next-api",
+		"jsonc-parser": "^3.2.0",
+		"proper-lockfile": "^4.1.2",
+		"semver": "^7.6.2",
+		"set-cookie-parser": "^2.6.0",
+		"ssh-config": "^4.4.3",
+		"@vscode/proxy-agent": "^0.23.0",
+		"undici": "7.2.0",
+		"yaml": "^2.7.0",
+		"@zip.js/zip.js": "^2.7.60"
+	},
+	"s3AssetBaseUrl": "https://gitpod-flex-releases.s3.amazonaws.com/vscode/releases/0.1.2025041703",
+	"main": "./out/extension.js",
+	"__metadata": {
+		"installedTimestamp": 1744955923755,
+		"size": 17715376
+	}
+}

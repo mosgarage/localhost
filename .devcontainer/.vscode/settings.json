@@ -1,0 +1,29 @@
+{
+    "cmake.sourceDirectory": "/home/developer/Documents/remotedev/vscodedev-server-project/localhost/developer/ecampusdev-manager/Android/testbed/app/src/main/c",
+    "azureFunctions.projectSubpath": "developer/projects/cloud-development-containers/src/azure-static-web-apps/test-project/api",
+    "cmake.ignoreCMakeListsMissing": true
+}
+    {
+    "security.workspace.trust.untrustedFiles": "open",
+    "window.title": "${folderPath} ${separator} ${activeEditorShort}",
+    "breadcrumbs.enabled": true,
+    "workbench.colorCustomizations": {
+        "[Default Dark+]": {
+            "editor.lineHighlightBackground": "#404020FF",
+            "editorLineNumber.activeForeground": "#ffff00",
+        },
+        "[Default Light+]": {
+            "editor.lineHighlightBackground": "#FFEEEE",
+            "editorLineNumber.activeForeground": "#ff0000",
+        }
+    },
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.tree.indent": 10,
+    "editor.fontSize": 12,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.formatOnPaste": true,
+    "editor.guides.bracketPairs": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.mouseWheelZoom": true
+}
